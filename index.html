@@ -53,9 +53,7 @@
       backdrop-filter: blur(10px);
     }
 
-    .hero-main {
-      padding: 28px;
-    }
+    .hero-main { padding: 28px; }
 
     .tag {
       display: inline-flex;
@@ -71,11 +69,7 @@
       margin-bottom: 14px;
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.05;
-    }
+    h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 42px); line-height: 1.05; }
 
     .lead {
       color: var(--muted);
@@ -85,11 +79,7 @@
       max-width: 62ch;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
     .btn {
       text-decoration: none;
@@ -107,6 +97,11 @@
       border-color: rgba(77,163,255,.3);
     }
 
+    .btn.disabled {
+      opacity: .45;
+      pointer-events: none;
+    }
+
     .hero-side {
       padding: 24px;
       display: flex;
@@ -122,19 +117,9 @@
       margin-bottom: 8px;
     }
 
-    .side-number {
-      font-size: 44px;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
+    .side-number { font-size: 44px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
 
-    .side-copy {
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
+    .side-copy { color: var(--muted); line-height: 1.5; font-size: 14px; margin-bottom: 18px; }
 
     .progress-track {
       height: 12px;
@@ -150,10 +135,7 @@
       background: linear-gradient(90deg, var(--ok), #8df7bb);
     }
 
-    .progress-note {
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .progress-note { color: var(--muted); font-size: 13px; }
 
     .grid-4 {
       display: grid;
@@ -162,9 +144,14 @@
       margin-bottom: 18px;
     }
 
-    .metric {
-      padding: 22px;
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 18px;
     }
+
+    .metric { padding: 22px; }
 
     .metric .label {
       color: var(--muted);
@@ -174,21 +161,10 @@
       margin-bottom: 8px;
     }
 
-    .metric .value {
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+    .metric .value { font-size: 34px; font-weight: 800; margin-bottom: 8px; }
+    .metric .sub { color: var(--muted); font-size: 14px; line-height: 1.45; }
 
-    .metric .sub {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .section {
-      margin-bottom: 18px;
-    }
+    .section { margin-bottom: 18px; }
 
     .section-header {
       display: flex;
@@ -198,15 +174,8 @@
       margin-bottom: 12px;
     }
 
-    .section h2 {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    .section p {
-      margin: 0;
-      color: var(--muted);
-    }
+    .section h2 { margin: 0; font-size: 22px; }
+    .section p { margin: 0; color: var(--muted); }
 
     .two-col {
       display: grid;
@@ -214,15 +183,9 @@
       gap: 16px;
     }
 
-    .table-card, .list-card {
-      padding: 18px;
-    }
+    .table-card, .list-card { padding: 18px; }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
 
     th, td {
       text-align: left;
@@ -238,6 +201,8 @@
       letter-spacing: .08em;
       font-weight: 600;
     }
+
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
 
     .status {
       display: inline-flex;
@@ -256,12 +221,7 @@
     .status.danger { background: rgba(255,107,107,.12); color: #ffc2c2; border: 1px solid rgba(255,107,107,.18); }
     .status.info { background: rgba(77,163,255,.12); color: #d9ebff; border: 1px solid rgba(77,163,255,.18); }
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 
     .chip {
       padding: 8px 10px;
@@ -272,10 +232,7 @@
       border: 1px solid var(--line);
     }
 
-    .timeline {
-      display: grid;
-      gap: 12px;
-    }
+    .timeline { display: grid; gap: 12px; }
 
     .timeline-item {
       padding: 14px;
@@ -284,16 +241,9 @@
       background: rgba(255,255,255,.02);
     }
 
-    .timeline-item strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .timeline-item span {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
+    .timeline-item strong { display: block; margin-bottom: 5px; }
+    .timeline-item span { color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .timeline-item .tl-date { color: var(--info); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
 
     .footer {
       margin-top: 8px;
@@ -303,35 +253,55 @@
       padding: 18px;
     }
 
-    /* ===== Backfill Monitor ===== */
-    .backfill-monitor {
-      padding: 22px;
-      margin-bottom: 18px;
-    }
-
-    .bf-header {
+    /* ===== Architecture Diagram ===== */
+    .arch-flow {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      justify-content: center;
+      gap: 0;
+      padding: 28px 18px;
+      flex-wrap: wrap;
     }
 
-    .bf-header h2 {
-      margin: 0;
-      font-size: 18px;
+    .arch-box {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 22px;
+      text-align: center;
+      min-width: 140px;
     }
+
+    .arch-box .arch-icon { font-size: 28px; margin-bottom: 6px; }
+    .arch-box .arch-label { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+    .arch-box .arch-sub { color: var(--muted); font-size: 12px; }
+
+    .arch-box.highlight {
+      border-color: rgba(77,163,255,.3);
+      background: rgba(77,163,255,.06);
+    }
+
+    .arch-arrow {
+      color: var(--muted);
+      font-size: 22px;
+      padding: 0 14px;
+      flex-shrink: 0;
+    }
+
+    /* ===== Backfill Monitor ===== */
+    .backfill-monitor { padding: 22px; margin-bottom: 18px; }
+
+    .bf-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .bf-header h2 { margin: 0; font-size: 18px; }
 
     .bf-pulse {
-      width: 10px;
-      height: 10px;
+      width: 10px; height: 10px;
       border-radius: 50%;
       background: var(--ok);
       flex-shrink: 0;
     }
 
-    .bf-pulse.active {
-      animation: pulse 1.4s ease-in-out infinite;
-    }
+    .bf-pulse.active { animation: pulse 1.4s ease-in-out infinite; }
 
     .bf-pulse.idle {
       background: var(--muted);
@@ -366,20 +336,10 @@
       margin-bottom: 4px;
     }
 
-    .bf-stat .bf-value {
-      font-size: 22px;
-      font-weight: 700;
-    }
+    .bf-stat .bf-value { font-size: 22px; font-weight: 700; }
+    .bf-stat .bf-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
 
-    .bf-stat .bf-sub {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 2px;
-    }
-
-    .bf-progress-wrap {
-      margin-bottom: 10px;
-    }
+    .bf-progress-wrap { margin-bottom: 10px; }
 
     .bf-progress-labels {
       display: flex;
@@ -422,15 +382,8 @@
       font-size: 13px;
     }
 
-    .bf-phase .bf-phase-title {
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .bf-phase .bf-phase-info {
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .bf-phase .bf-phase-title { font-weight: 700; margin-bottom: 4px; }
+    .bf-phase .bf-phase-info { color: var(--muted); font-size: 12px; }
 
     .bf-idle-msg {
       color: var(--muted);
@@ -439,30 +392,61 @@
       padding: 14px 0;
     }
 
+    .bf-queue { margin-top: 14px; }
+
+    .bf-queue-title {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    .bf-queue-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .bf-queue-item .bf-qi-pos {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 11px;
+      min-width: 18px;
+    }
+
+    .bf-queue-item .bf-qi-name { font-weight: 600; }
+    .bf-queue-item .bf-qi-detail { color: var(--muted); font-size: 12px; margin-left: auto; }
+
     @media (max-width: 980px) {
-      .hero, .grid-4, .two-col {
-        grid-template-columns: 1fr;
-      }
-      .bf-grid, .bf-phases {
-        grid-template-columns: 1fr;
-      }
+      .hero, .grid-4, .grid-3, .two-col { grid-template-columns: 1fr; }
+      .bf-grid, .bf-phases { grid-template-columns: 1fr; }
+      .arch-flow { flex-direction: column; }
+      .arch-arrow { transform: rotate(90deg); padding: 8px 0; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="card hero-main">
         <div class="tag">Projeto BI ATM • Bling → BigQuery → Looker</div>
         <h1>Painel de acompanhamento do projeto</h1>
         <p class="lead">
           Visão executiva do andamento da integração, da modelagem e das entregas analíticas.
-          Este modelo foi pensado para ser simples de hospedar, fácil de atualizar e apresentável para cliente.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#resumo">Ver resumo executivo</a>
+          <a class="btn" href="#dados">Ver dados carregados</a>
           <a class="btn" href="#dominios">Ver domínios e status</a>
-          <a class="btn" href="#proximos">Ver próximos passos</a>
+          <a class="btn disabled" href="#" title="Disponível após configuração do Looker Studio">Acessar Dashboard</a>
         </div>
       </div>
 
@@ -493,8 +477,8 @@
         <div class="bf-grid">
           <div class="bf-stat">
             <div class="bf-label">Processo</div>
-            <div class="bf-value" id="bf-name">Caixas (movimentações)</div>
-            <div class="bf-sub" id="bf-desc">Histórico jan/2022 – mar/2026</div>
+            <div class="bf-value" id="bf-name">—</div>
+            <div class="bf-sub" id="bf-desc">—</div>
           </div>
           <div class="bf-stat">
             <div class="bf-label">Tempo decorrido</div>
@@ -507,15 +491,15 @@
             <div class="bf-sub" id="bf-pct-note">Baseado no tempo estimado total</div>
           </div>
           <div class="bf-stat">
-            <div class="bf-label">Registros (lista)</div>
-            <div class="bf-value" id="bf-records">27.067</div>
-            <div class="bf-sub" id="bf-records-note">Fase 1 concluída</div>
+            <div class="bf-label">Registros</div>
+            <div class="bf-value" id="bf-records">—</div>
+            <div class="bf-sub" id="bf-records-note">—</div>
           </div>
         </div>
 
         <div class="bf-progress-wrap">
           <div class="bf-progress-labels">
-            <span id="bf-phase-label">Fase 2: Detalhe individual</span>
+            <span id="bf-phase-label">—</span>
             <span id="bf-progress-text">0%</span>
           </div>
           <div class="bf-progress-track">
@@ -525,21 +509,27 @@
 
         <div class="bf-phases">
           <div class="bf-phase">
-            <div class="bf-phase-title">Fase 1: Lista mensal</div>
-            <div class="bf-phase-info" id="bf-phase1-info">27.067 registros — Completa</div>
+            <div class="bf-phase-title" id="bf-phase1-title">Fase 1</div>
+            <div class="bf-phase-info" id="bf-phase1-info">—</div>
           </div>
           <div class="bf-phase">
-            <div class="bf-phase-title">Fase 2: Detalhe por ID</div>
-            <div class="bf-phase-info" id="bf-phase2-info">25.067 IDs a processar — Em andamento</div>
+            <div class="bf-phase-title" id="bf-phase2-title">Fase 2</div>
+            <div class="bf-phase-info" id="bf-phase2-info">—</div>
           </div>
+        </div>
+
+        <div id="bf-queue-section" class="bf-queue" style="display: none;">
+          <div class="bf-queue-title">Fila de espera</div>
+          <div id="bf-queue-list"></div>
         </div>
       </div>
 
       <div id="bf-idle-content" style="display: none;">
-        <div class="bf-idle-msg">Nenhum backfill em execução no momento. Último concluído aparece abaixo.</div>
+        <div class="bf-idle-msg">Nenhum backfill em execução no momento.</div>
       </div>
     </section>
 
+    <!-- ===== MÉTRICAS ===== -->
     <section class="grid-4" id="resumo">
       <article class="card metric">
         <div class="label">Endpoints mapeados</div>
@@ -563,6 +553,140 @@
       </article>
     </section>
 
+    <!-- ===== ARQUITETURA ===== -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Arquitetura do pipeline</h2>
+          <p>Fluxo simplificado de dados: da origem até o dashboard.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="arch-flow">
+          <div class="arch-box">
+            <div class="arch-icon">📦</div>
+            <div class="arch-label">Bling ERP</div>
+            <div class="arch-sub">API v3 • OAuth2</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">
+            <div class="arch-icon">🥉</div>
+            <div class="arch-label">Bronze</div>
+            <div class="arch-sub">JSON bruto local</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box highlight">
+            <div class="arch-icon">☁️</div>
+            <div class="arch-label">BigQuery</div>
+            <div class="arch-sub">Raw → Silver → Gold</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">
+            <div class="arch-icon">📊</div>
+            <div class="arch-label">Looker Studio</div>
+            <div class="arch-sub">Dashboards</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DADOS CARREGADOS + COBERTURA TEMPORAL ===== -->
+    <section class="section" id="dados">
+      <div class="section-header">
+        <div>
+          <h2>Dados carregados no BigQuery</h2>
+          <p>Volume e cobertura temporal por domínio. Todos com backfill histórico completo, exceto onde indicado.</p>
+        </div>
+      </div>
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Domínio</th>
+              <th class="num">Registros (lista)</th>
+              <th class="num">Detalhe</th>
+              <th>Cobertura temporal</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pedidos de venda</td>
+              <td class="num">34.611</td>
+              <td class="num">34.610</td>
+              <td>abr/2022 – abr/2026</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Notas fiscais (NFe)</td>
+              <td class="num">16.127</td>
+              <td class="num">16.127</td>
+              <td>jan/2022 – abr/2026</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Contas a pagar</td>
+              <td class="num">11.616</td>
+              <td class="num">11.616</td>
+              <td>jan/2022 – abr/2026</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Contatos</td>
+              <td class="num">11.870</td>
+              <td class="num">11.870</td>
+              <td>Cadastro completo</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Contas a receber</td>
+              <td class="num">5.327</td>
+              <td class="num">5.327</td>
+              <td>jan/2022 – abr/2026</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Caixas (movimentações)</td>
+              <td class="num">27.067</td>
+              <td class="num" id="caixas-detalhe-count">em andamento</td>
+              <td>mar/2022 – mar/2026</td>
+              <td><span class="status info">Backfill</span></td>
+            </tr>
+            <tr>
+              <td>Produtos</td>
+              <td class="num">23</td>
+              <td class="num">23</td>
+              <td>Catálogo completo</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Vendedores</td>
+              <td class="num">24</td>
+              <td class="num">24</td>
+              <td>Cadastro completo</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+            <tr>
+              <td>Dimensionais (6 tabelas)</td>
+              <td class="num">175</td>
+              <td class="num">—</td>
+              <td>Cadastro completo</td>
+              <td><span class="status ok">Completo</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr style="border-top: 2px solid var(--line);">
+              <td><strong>Total</strong></td>
+              <td class="num"><strong>106.840</strong></td>
+              <td class="num"><strong>79.597+</strong></td>
+              <td colspan="2" style="color: var(--muted);">9 domínios ativos no BigQuery</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== STATUS POR FRENTE ===== -->
     <section class="section" id="dominios">
       <div class="section-header">
         <div>
@@ -652,26 +776,22 @@
               <span>Vendedores, caixas, categorias, naturezas, canais de venda, logísticas e tipos de contato já na silver.</span>
             </div>
             <div class="timeline-item">
-              <strong>Backfill histórico de caixas em andamento</strong>
-              <span>27 mil movimentações financeiras (jan/2022–mar/2026) sendo carregadas. Fase de detalhe em progresso.</span>
-            </div>
-            <div class="timeline-item">
               <strong>Próximo ganho é visual</strong>
               <span>Com dados de clientes completos, o dashboard de clientes é a entrega mais imediata após conectar o Looker.</span>
             </div>
           </div>
 
           <div class="chip-row">
-            <div class="chip">34.611 pedidos de venda</div>
-            <div class="chip">16.127 NFs processadas</div>
-            <div class="chip">27.067 movimentações caixas</div>
+            <div class="chip">106k+ registros no BigQuery</div>
             <div class="chip">25 endpoints habilitados</div>
             <div class="chip">16 views silver ativas</div>
+            <div class="chip">19 testes passando</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===== PRÓXIMOS PASSOS ===== -->
     <section class="section" id="proximos">
       <div class="section-header">
         <div>
@@ -704,120 +824,198 @@
       </div>
     </section>
 
+    <!-- ===== HISTÓRICO DE MARCOS ===== -->
+    <section class="section" id="historico">
+      <div class="section-header">
+        <div>
+          <h2>Histórico de marcos</h2>
+          <p>Linha do tempo das entregas realizadas.</p>
+        </div>
+      </div>
+      <div class="card list-card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-date">09 abr 2026</div>
+            <strong>Onda 2 de domínios + 7 silver views</strong>
+            <span>Vendedores, caixas, categorias, naturezas, canais de venda, logísticas e contatos tipos adicionados ao pipeline com silver operacional.</span>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">09 abr 2026</div>
+            <strong>Backfill contas a pagar completo</strong>
+            <span>11.616 registros (lista + detalhe). Silver view criada.</span>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">09 abr 2026</div>
+            <strong>Silver views: contas a receber + contatos</strong>
+            <span>3 novas silver views completando a cobertura financeira e cadastral.</span>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">08 abr 2026</div>
+            <strong>Backfill pedidos de venda completo</strong>
+            <span>34.610 pedidos (lista + detalhe), abr/2022 a abr/2026. Gold views de clientes operacionais.</span>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">08 abr 2026</div>
+            <strong>NFe: silver + gold + backfill</strong>
+            <span>16.127 notas fiscais com 4 passes (saída, entrada, canceladas). Gold contábil operacional.</span>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">07 abr 2026</div>
+            <strong>Refresh automático de token</strong>
+            <span>TokenManager + EnvTokenStore implementados. Pipeline não precisa mais de renovação manual a cada 6h.</span>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">06 abr 2026</div>
+            <strong>BigQuery sandbox operacional</strong>
+            <span>Schema universal de 4 colunas validado. Primeiros endpoints carregados com sucesso.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <div class="footer card">
-      Modelo estático. Atualizado manualmente ao final de cada ação significativa do projeto.
+      Última atualização: <strong id="last-updated">09 de abril de 2026</strong> •
+      Modelo estático, atualizado ao final de cada ação significativa do projeto.
     </div>
   </div>
 
   <!-- ===== BACKFILL MONITOR — JAVASCRIPT ===== -->
   <!--
     COMO USAR:
-    1. Quando iniciar um backfill, edite BACKFILL_CONFIG abaixo:
-       - active: true
-       - name: nome do processo
-       - startedAt: new Date('YYYY-MM-DDTHH:MM:SS') com a hora de início
-       - estimatedMinutes: duração estimada em minutos
-       - phases: descreva as fases
-    2. Quando o backfill terminar, mude active para false.
-    3. O timer conta automaticamente e mostra % estimado.
+    1. Edite BACKFILL_QUEUE abaixo. O primeiro item com status='running' é exibido.
+       Items com status='queued' aparecem na fila. Items 'done' são ignorados.
+    2. Quando um backfill terminar, mude seu status para 'done'.
+       O próximo 'queued' será automaticamente promovido a 'running'
+       e seu startedAt será usado para o timer.
+    3. Quando todos estiverem 'done', o monitor mostra estado idle.
   -->
   <script>
-    const BACKFILL_CONFIG = {
-      active: true,
-      name: 'Caixas (movimentações)',
-      description: 'Histórico jan/2022 – mar/2026',
-      startedAt: new Date('2026-04-09T17:40:00Z'),
-      estimatedMinutes: 390, // ~6.5h total (Fase 1: ~35min + Fase 2: ~355min @ ~60 IDs/min)
-      records: '27.067',
-      recordsNote: 'Fase 1 concluída',
-      phases: [
-        { name: 'Fase 1: Lista mensal', info: '27.067 registros — Completa', done: true },
-        { name: 'Fase 2: Detalhe por ID', info: '25.067 IDs a processar', done: false }
-      ],
-      // Fase 1 levou ~35min. Fase 2 começa no minuto 35.
-      phase1EndMinute: 35,
-      phase2TotalIds: 25067,
-      // Último backfill concluído (exibido quando active=false)
-      lastCompleted: {
-        name: 'Contas a pagar',
-        date: '2026-04-09',
-        records: '11.616 lista + 11.616 detalhe'
+    const BACKFILL_QUEUE = [
+      {
+        status: 'running', // 'running' | 'queued' | 'done'
+        name: 'Caixas (movimentações)',
+        description: 'Histórico jan/2022 – mar/2026',
+        startedAt: new Date('2026-04-09T17:40:00Z'),
+        estimatedMinutes: 390,
+        records: '27.067',
+        recordsNote: 'Fase 1 concluída',
+        phases: [
+          { title: 'Fase 1: Lista mensal', info: '27.067 registros — Completa' },
+          { title: 'Fase 2: Detalhe por ID', info: '25.067 IDs a processar' }
+        ],
+        phase1EndMinute: 35,
+        phase2TotalIds: 25067
       }
-    };
+      // Exemplo de item na fila:
+      // {
+      //   status: 'queued',
+      //   name: 'Outro domínio',
+      //   description: 'Descrição',
+      //   startedAt: null,           // definir quando começar
+      //   estimatedMinutes: 120,
+      //   records: '—',
+      //   recordsNote: 'Aguardando',
+      //   phases: [
+      //     { title: 'Fase 1', info: 'Pendente' },
+      //     { title: 'Fase 2', info: 'Pendente' }
+      //   ],
+      //   phase1EndMinute: 20,
+      //   phase2TotalIds: 5000
+      // }
+    ];
 
     function formatDuration(ms) {
       if (ms < 0) ms = 0;
-      const s = Math.floor(ms / 1000);
-      const h = Math.floor(s / 3600);
-      const m = Math.floor((s % 3600) / 60);
-      const sec = s % 60;
+      var s = Math.floor(ms / 1000);
+      var h = Math.floor(s / 3600);
+      var m = Math.floor((s % 3600) / 60);
+      var sec = s % 60;
       if (h > 0) return h + 'h ' + String(m).padStart(2, '0') + 'm';
       return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
     }
 
     function updateMonitor() {
-      const cfg = BACKFILL_CONFIG;
-      const pulse = document.getElementById('bf-pulse');
-      const title = document.getElementById('bf-title');
-      const activeContent = document.getElementById('bf-active-content');
-      const idleContent = document.getElementById('bf-idle-content');
+      var pulse = document.getElementById('bf-pulse');
+      var title = document.getElementById('bf-title');
+      var activeContent = document.getElementById('bf-active-content');
+      var idleContent = document.getElementById('bf-idle-content');
 
-      if (!cfg.active) {
+      // Find current running item
+      var current = null;
+      var queued = [];
+      for (var i = 0; i < BACKFILL_QUEUE.length; i++) {
+        if (BACKFILL_QUEUE[i].status === 'running') current = BACKFILL_QUEUE[i];
+        else if (BACKFILL_QUEUE[i].status === 'queued') queued.push(BACKFILL_QUEUE[i]);
+      }
+
+      // If nothing running but items queued, auto-promote first queued
+      if (!current && queued.length > 0) {
+        current = queued.shift();
+        current.status = 'running';
+        if (!current.startedAt) current.startedAt = new Date();
+      }
+
+      if (!current) {
+        // Idle
         pulse.className = 'bf-pulse idle';
         title.textContent = 'Nenhum backfill ativo';
         activeContent.style.display = 'none';
         idleContent.style.display = 'block';
-        if (cfg.lastCompleted) {
+        // Find last completed
+        var lastDone = null;
+        for (var j = BACKFILL_QUEUE.length - 1; j >= 0; j--) {
+          if (BACKFILL_QUEUE[j].status === 'done') { lastDone = BACKFILL_QUEUE[j]; break; }
+        }
+        if (lastDone) {
           idleContent.innerHTML =
-            '<div class="bf-idle-msg">' +
-            'Último concluído: <strong>' + cfg.lastCompleted.name + '</strong> em ' +
-            cfg.lastCompleted.date + ' — ' + cfg.lastCompleted.records +
-            '</div>';
+            '<div class="bf-idle-msg">Último concluído: <strong>' + lastDone.name +
+            '</strong> — ' + lastDone.records + ' registros</div>';
         }
         return;
       }
 
       // Active
       pulse.className = 'bf-pulse active';
-      title.textContent = 'Backfill em andamento';
+      title.textContent = queued.length > 0
+        ? 'Backfill em andamento (' + (queued.length) + ' na fila)'
+        : 'Backfill em andamento';
       activeContent.style.display = 'block';
       idleContent.style.display = 'none';
 
-      const now = new Date();
-      const elapsed = now - cfg.startedAt;
-      const totalEstimated = cfg.estimatedMinutes * 60 * 1000;
-      const pct = Math.min(99, Math.round((elapsed / totalEstimated) * 100));
-      const remaining = Math.max(0, totalEstimated - elapsed);
+      var now = new Date();
+      var elapsed = now - current.startedAt;
+      var totalEstimated = current.estimatedMinutes * 60 * 1000;
+      var pct = Math.min(99, Math.round((elapsed / totalEstimated) * 100));
+      var remaining = Math.max(0, totalEstimated - elapsed);
 
-      document.getElementById('bf-name').textContent = cfg.name;
-      document.getElementById('bf-desc').textContent = cfg.description;
+      document.getElementById('bf-name').textContent = current.name;
+      document.getElementById('bf-desc').textContent = current.description;
       document.getElementById('bf-elapsed').textContent = formatDuration(elapsed);
       document.getElementById('bf-pct').textContent = pct + '%';
-      document.getElementById('bf-records').textContent = cfg.records;
-      document.getElementById('bf-records-note').textContent = cfg.recordsNote;
+      document.getElementById('bf-records').textContent = current.records;
+      document.getElementById('bf-records-note').textContent = current.recordsNote;
 
-      if (remaining > 0) {
-        document.getElementById('bf-eta').textContent = 'Restante estimado: ~' + formatDuration(remaining);
-      } else {
-        document.getElementById('bf-eta').textContent = 'Pode estar finalizando...';
-      }
+      document.getElementById('bf-eta').textContent = remaining > 0
+        ? 'Restante estimado: ~' + formatDuration(remaining)
+        : 'Pode estar finalizando...';
 
       // Progress bar
-      const elapsedMin = elapsed / 60000;
-      let barPct = pct;
-      let phaseLabel = 'Fase 2: Detalhe individual';
+      var elapsedMin = elapsed / 60000;
+      var barPct = pct;
+      var phaseLabel = current.phases[1] ? current.phases[1].title : 'Processando';
 
-      if (elapsedMin < cfg.phase1EndMinute) {
-        phaseLabel = 'Fase 1: Lista mensal';
-        barPct = Math.min(99, Math.round((elapsedMin / cfg.phase1EndMinute) * 100));
-      } else {
-        const phase2Elapsed = elapsedMin - cfg.phase1EndMinute;
-        const phase2Total = cfg.estimatedMinutes - cfg.phase1EndMinute;
+      if (elapsedMin < current.phase1EndMinute) {
+        phaseLabel = current.phases[0] ? current.phases[0].title : 'Fase 1';
+        barPct = Math.min(99, Math.round((elapsedMin / current.phase1EndMinute) * 100));
+      } else if (current.phase2TotalIds) {
+        var phase2Elapsed = elapsedMin - current.phase1EndMinute;
+        var phase2Total = current.estimatedMinutes - current.phase1EndMinute;
         barPct = Math.min(99, Math.round((phase2Elapsed / phase2Total) * 100));
-        const estimatedIdsDone = Math.round((phase2Elapsed / phase2Total) * cfg.phase2TotalIds);
-        const idsText = Math.min(estimatedIdsDone, cfg.phase2TotalIds).toLocaleString('pt-BR');
+        var estimatedIdsDone = Math.round((phase2Elapsed / phase2Total) * current.phase2TotalIds);
+        var idsText = Math.min(estimatedIdsDone, current.phase2TotalIds).toLocaleString('pt-BR');
         document.getElementById('bf-phase2-info').textContent =
-          '~' + idsText + ' / ' + cfg.phase2TotalIds.toLocaleString('pt-BR') + ' IDs';
+          '~' + idsText + ' / ' + current.phase2TotalIds.toLocaleString('pt-BR') + ' IDs';
       }
 
       document.getElementById('bf-phase-label').textContent = phaseLabel;
@@ -827,15 +1025,37 @@
       if (pct >= 99) {
         document.getElementById('bf-bar').classList.add('complete');
         document.getElementById('bf-pct-note').textContent = 'Finalizando...';
+      } else {
+        document.getElementById('bf-bar').classList.remove('complete');
+        document.getElementById('bf-pct-note').textContent = 'Baseado no tempo estimado total';
       }
 
-      // Phase info
-      cfg.phases.forEach(function(phase, i) {
-        var el = document.getElementById('bf-phase' + (i + 1) + '-info');
-        if (el && phase.done) {
-          el.textContent = phase.info;
+      // Phase titles and info
+      if (current.phases[0]) {
+        document.getElementById('bf-phase1-title').textContent = current.phases[0].title;
+        document.getElementById('bf-phase1-info').textContent = current.phases[0].info;
+      }
+      if (current.phases[1]) {
+        document.getElementById('bf-phase2-title').textContent = current.phases[1].title;
+      }
+
+      // Queue display
+      var queueSection = document.getElementById('bf-queue-section');
+      var queueList = document.getElementById('bf-queue-list');
+      if (queued.length > 0) {
+        queueSection.style.display = 'block';
+        var html = '';
+        for (var k = 0; k < queued.length; k++) {
+          html += '<div class="bf-queue-item">' +
+            '<span class="bf-qi-pos">#' + (k + 1) + '</span>' +
+            '<span class="bf-qi-name">' + queued[k].name + '</span>' +
+            '<span class="bf-qi-detail">~' + queued[k].estimatedMinutes + ' min estimados</span>' +
+            '</div>';
         }
-      });
+        queueList.innerHTML = html;
+      } else {
+        queueSection.style.display = 'none';
+      }
     }
 
     // Update every 5 seconds

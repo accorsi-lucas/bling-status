@@ -303,8 +303,147 @@
       padding: 18px;
     }
 
+    /* ===== Backfill Monitor ===== */
+    .backfill-monitor {
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .bf-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .bf-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .bf-pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ok);
+      flex-shrink: 0;
+    }
+
+    .bf-pulse.active {
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    .bf-pulse.idle {
+      background: var(--muted);
+      opacity: .4;
+      animation: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(46,204,113,.5); }
+      50% { box-shadow: 0 0 0 8px rgba(46,204,113,0); }
+    }
+
+    .bf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .bf-stat {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .bf-stat .bf-label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 4px;
+    }
+
+    .bf-stat .bf-value {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .bf-stat .bf-sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .bf-progress-wrap {
+      margin-bottom: 10px;
+    }
+
+    .bf-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .bf-progress-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      overflow: hidden;
+    }
+
+    .bf-progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--info), #8df7bb);
+      transition: width .5s ease;
+    }
+
+    .bf-progress-fill.complete {
+      background: linear-gradient(90deg, var(--ok), #8df7bb);
+    }
+
+    .bf-phases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .bf-phase {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    .bf-phase .bf-phase-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .bf-phase .bf-phase-info {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .bf-idle-msg {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding: 14px 0;
+    }
+
     @media (max-width: 980px) {
       .hero, .grid-4, .two-col {
+        grid-template-columns: 1fr;
+      }
+      .bf-grid, .bf-phases {
         grid-template-columns: 1fr;
       }
     }
@@ -340,6 +479,64 @@
           <div class="progress-track"><div class="progress-bar"></div></div>
           <div class="progress-note">Ajuste esse percentual manualmente conforme o projeto evoluir.</div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== BACKFILL MONITOR ===== -->
+    <section id="backfill-monitor" class="card backfill-monitor">
+      <div class="bf-header">
+        <div id="bf-pulse" class="bf-pulse active"></div>
+        <h2 id="bf-title">Backfill em andamento</h2>
+      </div>
+
+      <div id="bf-active-content">
+        <div class="bf-grid">
+          <div class="bf-stat">
+            <div class="bf-label">Processo</div>
+            <div class="bf-value" id="bf-name">Caixas (movimentações)</div>
+            <div class="bf-sub" id="bf-desc">Histórico jan/2022 – mar/2026</div>
+          </div>
+          <div class="bf-stat">
+            <div class="bf-label">Tempo decorrido</div>
+            <div class="bf-value" id="bf-elapsed">--:--</div>
+            <div class="bf-sub" id="bf-eta">Estimativa restante: calculando...</div>
+          </div>
+          <div class="bf-stat">
+            <div class="bf-label">Progresso estimado</div>
+            <div class="bf-value" id="bf-pct">0%</div>
+            <div class="bf-sub" id="bf-pct-note">Baseado no tempo estimado total</div>
+          </div>
+          <div class="bf-stat">
+            <div class="bf-label">Registros (lista)</div>
+            <div class="bf-value" id="bf-records">27.067</div>
+            <div class="bf-sub" id="bf-records-note">Fase 1 concluída</div>
+          </div>
+        </div>
+
+        <div class="bf-progress-wrap">
+          <div class="bf-progress-labels">
+            <span id="bf-phase-label">Fase 2: Detalhe individual</span>
+            <span id="bf-progress-text">0%</span>
+          </div>
+          <div class="bf-progress-track">
+            <div class="bf-progress-fill" id="bf-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="bf-phases">
+          <div class="bf-phase">
+            <div class="bf-phase-title">Fase 1: Lista mensal</div>
+            <div class="bf-phase-info" id="bf-phase1-info">27.067 registros — Completa</div>
+          </div>
+          <div class="bf-phase">
+            <div class="bf-phase-title">Fase 2: Detalhe por ID</div>
+            <div class="bf-phase-info" id="bf-phase2-info">25.067 IDs a processar — Em andamento</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="bf-idle-content" style="display: none;">
+        <div class="bf-idle-msg">Nenhum backfill em execução no momento. Último concluído aparece abaixo.</div>
       </div>
     </section>
 
@@ -411,9 +608,14 @@
                 <td>Já há base para primeiros dashboards, mas ainda não é cobertura ampla.</td>
               </tr>
               <tr>
-                <td>Dashboard cliente</td>
+                <td>Looker Studio</td>
+                <td><span class="status warn">Pendente</span></td>
+                <td>Testes de conexão e configurações iniciais ainda não realizados.</td>
+              </tr>
+              <tr>
+                <td>Dashboard de clientes</td>
                 <td><span class="status warn">Próxima etapa</span></td>
-                <td>Conexão com Looker e desenho da visualização entram agora na prioridade.</td>
+                <td>Dados de pedidos já completos (34k+). Prioridade após conectar Looker.</td>
               </tr>
               <tr>
                 <td>Cloud / produção</td>
@@ -421,9 +623,9 @@
                 <td>Estrutura pensada, porém produção segue desligada intencionalmente.</td>
               </tr>
               <tr>
-                <td>Depósitos / Ordens Produção</td>
-                <td><span class="status danger">Descartado</span></td>
-                <td>Cliente confirmou que não utiliza esses módulos. Removidos do escopo.</td>
+                <td>Depósitos / Ordens de Produção</td>
+                <td><span class="status warn">Postergado</span></td>
+                <td>Funcionalidades não utilizadas pelo cliente no momento.</td>
               </tr>
             </tbody>
           </table>
@@ -446,25 +648,25 @@
               <span>Isso acelera visões contábeis e comparações com faturamento operacional.</span>
             </div>
             <div class="timeline-item">
-              <strong>Parte do risco já foi resolvida</strong>
-              <span>Autenticação, schema raw universal e backfills principais já saíram da fase incerta.</span>
-            </div>
-            <div class="timeline-item">
               <strong>Onda 2 de domínios concluída</strong>
               <span>Vendedores, caixas, categorias, naturezas, canais de venda, logísticas e tipos de contato já na silver.</span>
             </div>
             <div class="timeline-item">
-              <strong>O próximo ganho é visual</strong>
-              <span>Agora faz sentido transformar a base em painel para o cliente acompanhar entregas e valor.</span>
+              <strong>Backfill histórico de caixas em andamento</strong>
+              <span>27 mil movimentações financeiras (jan/2022–mar/2026) sendo carregadas. Fase de detalhe em progresso.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Próximo ganho é visual</strong>
+              <span>Com dados de clientes completos, o dashboard de clientes é a entrega mais imediata após conectar o Looker.</span>
             </div>
           </div>
 
           <div class="chip-row">
-            <div class="chip">34.611 linhas em pedidos lista</div>
+            <div class="chip">34.611 pedidos de venda</div>
             <div class="chip">16.127 NFs processadas</div>
+            <div class="chip">27.067 movimentações caixas</div>
             <div class="chip">25 endpoints habilitados</div>
             <div class="chip">16 views silver ativas</div>
-            <div class="chip">19 testes passando</div>
           </div>
         </div>
       </div>
@@ -482,12 +684,12 @@
         <article class="card metric">
           <div class="label">1</div>
           <div class="value" style="font-size: 22px;">Looker Studio</div>
-          <div class="sub">Conectar as views gold e montar o primeiro dashboard de negócio.</div>
+          <div class="sub">Testar conexão com BigQuery, configurar credenciais e data sources.</div>
         </article>
         <article class="card metric">
           <div class="label">2</div>
-          <div class="value" style="font-size: 22px;">Mais domínios</div>
-          <div class="sub">Expandir manifesto conforme prioridade e permissões liberadas.</div>
+          <div class="value" style="font-size: 22px;">Dashboard Clientes</div>
+          <div class="sub">Primeiro painel: última compra, montante anual, perfil de cliente. Dados já prontos.</div>
         </article>
         <article class="card metric">
           <div class="label">3</div>
@@ -502,39 +704,143 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-header">
-        <div>
-          <h2>Como usar isso na Hostinger</h2>
-          <p>Sem backend, sem complicação.</p>
-        </div>
-      </div>
-
-      <div class="card list-card">
-        <div class="timeline">
-          <div class="timeline-item">
-            <strong>Opção mais simples</strong>
-            <span>Subir este arquivo como <code>index.html</code> em uma pasta ou subdomínio, por exemplo <code>status.seudominio.com.br</code>.</span>
-          </div>
-          <div class="timeline-item">
-            <strong>Atualização manual</strong>
-            <span>Você edita poucos números e textos no HTML e publica novamente por FTP, gerenciador de arquivos ou Git.</span>
-          </div>
-          <div class="timeline-item">
-            <strong>Próximo nível</strong>
-            <span>Dá para separar os dados em um <code>status.json</code> e deixar o HTML puxando esse arquivo, facilitando atualização sem mexer no layout.</span>
-          </div>
-          <div class="timeline-item">
-            <strong>Melhor uso para cliente</strong>
-            <span>Manter uma página executiva e, se quiser, uma segunda página mais técnica só para vocês.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <div class="footer card">
-      Modelo estático inicial. Ideal para status de projeto, migração e roadmap sem depender de sistema complexo.
+      Modelo estático. Atualizado manualmente ao final de cada ação significativa do projeto.
     </div>
   </div>
+
+  <!-- ===== BACKFILL MONITOR — JAVASCRIPT ===== -->
+  <!--
+    COMO USAR:
+    1. Quando iniciar um backfill, edite BACKFILL_CONFIG abaixo:
+       - active: true
+       - name: nome do processo
+       - startedAt: new Date('YYYY-MM-DDTHH:MM:SS') com a hora de início
+       - estimatedMinutes: duração estimada em minutos
+       - phases: descreva as fases
+    2. Quando o backfill terminar, mude active para false.
+    3. O timer conta automaticamente e mostra % estimado.
+  -->
+  <script>
+    const BACKFILL_CONFIG = {
+      active: true,
+      name: 'Caixas (movimentações)',
+      description: 'Histórico jan/2022 – mar/2026',
+      startedAt: new Date('2026-04-09T17:40:00Z'),
+      estimatedMinutes: 390, // ~6.5h total (Fase 1: ~35min + Fase 2: ~355min @ ~60 IDs/min)
+      records: '27.067',
+      recordsNote: 'Fase 1 concluída',
+      phases: [
+        { name: 'Fase 1: Lista mensal', info: '27.067 registros — Completa', done: true },
+        { name: 'Fase 2: Detalhe por ID', info: '25.067 IDs a processar', done: false }
+      ],
+      // Fase 1 levou ~35min. Fase 2 começa no minuto 35.
+      phase1EndMinute: 35,
+      phase2TotalIds: 25067,
+      // Último backfill concluído (exibido quando active=false)
+      lastCompleted: {
+        name: 'Contas a pagar',
+        date: '2026-04-09',
+        records: '11.616 lista + 11.616 detalhe'
+      }
+    };
+
+    function formatDuration(ms) {
+      if (ms < 0) ms = 0;
+      const s = Math.floor(ms / 1000);
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const sec = s % 60;
+      if (h > 0) return h + 'h ' + String(m).padStart(2, '0') + 'm';
+      return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+    }
+
+    function updateMonitor() {
+      const cfg = BACKFILL_CONFIG;
+      const pulse = document.getElementById('bf-pulse');
+      const title = document.getElementById('bf-title');
+      const activeContent = document.getElementById('bf-active-content');
+      const idleContent = document.getElementById('bf-idle-content');
+
+      if (!cfg.active) {
+        pulse.className = 'bf-pulse idle';
+        title.textContent = 'Nenhum backfill ativo';
+        activeContent.style.display = 'none';
+        idleContent.style.display = 'block';
+        if (cfg.lastCompleted) {
+          idleContent.innerHTML =
+            '<div class="bf-idle-msg">' +
+            'Último concluído: <strong>' + cfg.lastCompleted.name + '</strong> em ' +
+            cfg.lastCompleted.date + ' — ' + cfg.lastCompleted.records +
+            '</div>';
+        }
+        return;
+      }
+
+      // Active
+      pulse.className = 'bf-pulse active';
+      title.textContent = 'Backfill em andamento';
+      activeContent.style.display = 'block';
+      idleContent.style.display = 'none';
+
+      const now = new Date();
+      const elapsed = now - cfg.startedAt;
+      const totalEstimated = cfg.estimatedMinutes * 60 * 1000;
+      const pct = Math.min(99, Math.round((elapsed / totalEstimated) * 100));
+      const remaining = Math.max(0, totalEstimated - elapsed);
+
+      document.getElementById('bf-name').textContent = cfg.name;
+      document.getElementById('bf-desc').textContent = cfg.description;
+      document.getElementById('bf-elapsed').textContent = formatDuration(elapsed);
+      document.getElementById('bf-pct').textContent = pct + '%';
+      document.getElementById('bf-records').textContent = cfg.records;
+      document.getElementById('bf-records-note').textContent = cfg.recordsNote;
+
+      if (remaining > 0) {
+        document.getElementById('bf-eta').textContent = 'Restante estimado: ~' + formatDuration(remaining);
+      } else {
+        document.getElementById('bf-eta').textContent = 'Pode estar finalizando...';
+      }
+
+      // Progress bar
+      const elapsedMin = elapsed / 60000;
+      let barPct = pct;
+      let phaseLabel = 'Fase 2: Detalhe individual';
+
+      if (elapsedMin < cfg.phase1EndMinute) {
+        phaseLabel = 'Fase 1: Lista mensal';
+        barPct = Math.min(99, Math.round((elapsedMin / cfg.phase1EndMinute) * 100));
+      } else {
+        const phase2Elapsed = elapsedMin - cfg.phase1EndMinute;
+        const phase2Total = cfg.estimatedMinutes - cfg.phase1EndMinute;
+        barPct = Math.min(99, Math.round((phase2Elapsed / phase2Total) * 100));
+        const estimatedIdsDone = Math.round((phase2Elapsed / phase2Total) * cfg.phase2TotalIds);
+        const idsText = Math.min(estimatedIdsDone, cfg.phase2TotalIds).toLocaleString('pt-BR');
+        document.getElementById('bf-phase2-info').textContent =
+          '~' + idsText + ' / ' + cfg.phase2TotalIds.toLocaleString('pt-BR') + ' IDs';
+      }
+
+      document.getElementById('bf-phase-label').textContent = phaseLabel;
+      document.getElementById('bf-progress-text').textContent = barPct + '%';
+      document.getElementById('bf-bar').style.width = barPct + '%';
+
+      if (pct >= 99) {
+        document.getElementById('bf-bar').classList.add('complete');
+        document.getElementById('bf-pct-note').textContent = 'Finalizando...';
+      }
+
+      // Phase info
+      cfg.phases.forEach(function(phase, i) {
+        var el = document.getElementById('bf-phase' + (i + 1) + '-info');
+        if (el && phase.done) {
+          el.textContent = phase.info;
+        }
+      });
+    }
+
+    // Update every 5 seconds
+    updateMonitor();
+    setInterval(updateMonitor, 5000);
+  </script>
 </body>
 </html>
